@@ -1,6 +1,6 @@
-# BankGuard
+# Random Forest vs Multilayer Perceptron Model
 
-Machine learning-based mobile banking fraud detection system using Random Forest.
+This study utilizes a labeled synthetic mobile money transaction dataset developed by the Makerere University Department of Computer Science and publicly available via Mendeley Data to compare Random Forest and Multilayer Perceptron Model performance in detecting mobile banking fraud.
 
 ## Installation
 
