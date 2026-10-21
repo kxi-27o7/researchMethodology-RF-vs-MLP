@@ -27,3 +27,30 @@ After downloading, place the database file inside:
 ```plaintext
 dataset/synthetic_dataset
 ```
+
+## Refined experiments
+
+The staged notebooks are in `workspace/`:
+
+1. `workspace/eda.ipynb` explores the raw synthetic transactions.
+2. `workspace/feature_engineering.ipynb` builds the shared features and saves
+   `results/featured_dataset/featured_144days.pkl`.
+3. `workspace/train_model_logistic.ipynb`, `workspace/train_model_rf.ipynb`,
+   and `workspace/train_model_mlp.ipynb` train Logistic Regression, Random
+   Forest, and MLP. Each uses the same chronological split and feature-set
+   ablations.
+4. `workspace/evaluate_models.ipynb` chooses thresholds from validation
+   predictions and displays Accuracy, Precision, Recall, Specificity,
+   F1-Score, and MCC for the untouched final test period.
+
+Open the notebooks in Jupyter or VS Code and run them in that order, with the
+`code` folder as the working directory so the relative `dataset/` and
+`results/` paths resolve. Models and validation/test scores are saved in
+`results/logistic/`, `results/rf/`, and `results/mlp/`. Final metrics are
+displayed directly in the evaluation notebook. All included transaction data
+are synthetic, so this workflow does not establish real-world performance.
+
+The split is train, six-step delay/validation, then test. The model trains on
+all steps through 114. Steps 115–120 are both the six-step delay and the
+validation period used to select the fraud threshold; steps 121–143 are the
+untouched final test period.
